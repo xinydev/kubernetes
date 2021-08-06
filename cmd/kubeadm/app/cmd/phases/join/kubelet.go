@@ -21,14 +21,8 @@ import (
 	"fmt"
 	"os"
 
-	kubeadmapi "k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm"
-	"k8s.io/kubernetes/cmd/kubeadm/app/cmd/options"
-	"k8s.io/kubernetes/cmd/kubeadm/app/cmd/phases/workflow"
-	kubeadmconstants "k8s.io/kubernetes/cmd/kubeadm/app/constants"
-	kubeletphase "k8s.io/kubernetes/cmd/kubeadm/app/phases/kubelet"
-	patchnodephase "k8s.io/kubernetes/cmd/kubeadm/app/phases/patchnode"
-	"k8s.io/kubernetes/cmd/kubeadm/app/util/apiclient"
-	kubeconfigutil "k8s.io/kubernetes/cmd/kubeadm/app/util/kubeconfig"
+	"github.com/lithammer/dedent"
+	"github.com/pkg/errors"
 
 	v1 "k8s.io/api/core/v1"
 	apierrors "k8s.io/apimachinery/pkg/api/errors"
@@ -38,8 +32,14 @@ import (
 	certutil "k8s.io/client-go/util/cert"
 	"k8s.io/klog/v2"
 
-	"github.com/lithammer/dedent"
-	"github.com/pkg/errors"
+	kubeadmapi "k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm"
+	"k8s.io/kubernetes/cmd/kubeadm/app/cmd/options"
+	"k8s.io/kubernetes/cmd/kubeadm/app/cmd/phases/workflow"
+	kubeadmconstants "k8s.io/kubernetes/cmd/kubeadm/app/constants"
+	kubeletphase "k8s.io/kubernetes/cmd/kubeadm/app/phases/kubelet"
+	patchnodephase "k8s.io/kubernetes/cmd/kubeadm/app/phases/patchnode"
+	"k8s.io/kubernetes/cmd/kubeadm/app/util/apiclient"
+	kubeconfigutil "k8s.io/kubernetes/cmd/kubeadm/app/util/kubeconfig"
 )
 
 var (

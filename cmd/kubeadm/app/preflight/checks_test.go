@@ -27,17 +27,17 @@ import (
 	"strings"
 	"testing"
 
-	kubeadmapi "k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm"
-	"k8s.io/kubernetes/cmd/kubeadm/app/constants"
-	utilruntime "k8s.io/kubernetes/cmd/kubeadm/app/util/runtime"
+	"github.com/lithammer/dedent"
+	"github.com/pkg/errors"
 
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/util/sets"
 	"k8s.io/utils/exec"
 	fakeexec "k8s.io/utils/exec/testing"
 
-	"github.com/lithammer/dedent"
-	"github.com/pkg/errors"
+	kubeadmapi "k8s.io/kubernetes/cmd/kubeadm/app/apis/kubeadm"
+	"k8s.io/kubernetes/cmd/kubeadm/app/constants"
+	utilruntime "k8s.io/kubernetes/cmd/kubeadm/app/util/runtime"
 )
 
 var (
